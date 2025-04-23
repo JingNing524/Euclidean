@@ -5,19 +5,27 @@
 #citations and included the sources in the final reference list. “
 
 
-initial_A=270
-initial_B=192
-
-A=initial_A 
-B=initial_B 
-
-while B != 0:
-    R = A % B  #use modolus to find the remainder
-    A = B  #the new A is the old B
-    B = R  #the new B is the remainder
-
-result = A  #the GCD is the final value of A when B becomes 0
-
-output = f"GCD({initial_A}, {initial_B}) = {result}"
-print(output)
+class EuclideanAlgorithm:
     
+    def __init__(self, a, b):
+        #two positive integers stored as private attributes _a and _b
+        self._a=a
+        self._b=b
+    
+    def get_gcd(self):
+        
+        A=self._a   #make it a variable
+        B=self._b   #make it a variable
+        
+        while B!=0:  
+            R=A%B   #use modolus to find the remainder
+            A=B   #the new A is the old B
+            B=R   #the new B is the remainder
+        return A   #when B=0, A holds the GCD
+
+input_a=270
+input_b=192       
+
+example=EuclideanAlgorithm(input_a, input_b)   
+gcd_result=example.get_gcd()
+print(f"GCD({input_a}, {input_b})={gcd_result}")     
