@@ -39,6 +39,10 @@ class EuclideanAlgorithm:
         A=self._a   #make it a variable
         B=self._b   #make it a variable
      
+        if B==0:
+            self._gcd=A
+            return self._gcd
+        
         while B!=0:  
             R=A%B   #use modolus to find the remainder
             A=B   #the new A is the old B
