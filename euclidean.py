@@ -24,7 +24,7 @@ class EuclideanAlgorithm:
         return type(n) ==int and n>0
     
     def is_valid(self):
-        return self.valid
+        return self._valid
     
     def caculate_gcd(self):
         if not self._valid:
@@ -43,7 +43,7 @@ class EuclideanAlgorithm:
         
     
     def get_gcd(self):
-        if not self.valid:
+        if not self._valid: 
            return None
         if self._gcd is None:
            self.caculate_gcd()
