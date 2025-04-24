@@ -52,7 +52,7 @@ class EuclideanAlgorithm:
 def get_valid_integer_input(prompt):
     while True:
         user_input=input(prompt)
-        if not user_input or '' in user_input:
+        if not user_input or ' ' in user_input:
             print('Invalid input: Please enter a single number without spaces.')
             continue
            
