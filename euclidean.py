@@ -10,7 +10,7 @@ class EuclideanAlgorithm:
     def __init__(self, a, b):
         #two positive integers stored as private attributes _a and _b
         
-        if not self._is_positive_integer(a) or not self._is_positive_integer(b):
+        if not self._is_positive_integer(a) or not self._is_positive_integer(b) or (a==0 and b==0):
             self._a= None   #set _a to None to indicate invalid input
             self._b= None   #set _b to None to indicate invalid input
             self._valid= False   #set _valid to False to indicate invalid input
@@ -24,7 +24,7 @@ class EuclideanAlgorithm:
     def _is_positive_integer(self,n):
         #checks if a given number is a positive integer
         #check if n is of type int and greater than 0
-        return type(n) ==int and n>0   
+        return type(n) ==int and n>=0   
     
     def is_valid(self):
         #true if the object was initialized with valid positive integers
@@ -52,8 +52,9 @@ class EuclideanAlgorithm:
         if not self._valid: 
            return None   #return None if the object is not valid
         if self._gcd is None:
-           self.caculate_gcd()   ##calculate the GCD if it hasn't been already
-           return self._gcd
+            self.caculate_gcd()   ##calculate the GCD if it hasn't been already
+            return self._gcd
+        return self._gcd
        
 def get_valid_integer_input(prompt):
     while True:
@@ -70,10 +71,8 @@ def get_valid_integer_input(prompt):
             
             if is_digit_string:
                 number= int(user_input)   #convert the input string to an integer
-                if number>0:
-                    return number   #return the positive integer
-                else:
-                    print('invalid input: Please enter a positive integer.')
+                return number   #return the non-negative integer
+                
             else:
                 print('Invalid input: Please enter an integer.')
                 
@@ -81,13 +80,9 @@ if __name__ =='__main__':
     print('Welcome to the Euclidean Algorithm GCD caculator!')
         
     while True:
-        A= get_valid_integer_input('Enter your first positive integer number: ')
-        if A is None:
-            continue   #go back to the beginning of the loop if input is invalid
-        B= get_valid_integer_input('Enter your second positive integer number: ')
-        if B is None:
-            continue   #go back to the beginning of the loop if input is invalid
-            
+        A= get_valid_integer_input('Enter your first integer number: ')
+        B= get_valid_integer_input('Enter your second integer number: ')
+        
         solve=EuclideanAlgorithm(A, B)   #create an instance of the EuclideanAlgorithm class
         if solve.is_valid():
             gcd_result=solve.get_gcd()   #get the GCD
