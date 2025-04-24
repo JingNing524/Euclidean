@@ -18,8 +18,8 @@ class EuclideanAlgorithm:
             self._a=a   #store first integer
             self._b=b   #store second integer
             self._valid= True   #set _valid to True to indicate valid input
-        self._gcd= None   #initialize _gcd to None, indicating that the GCD
-                          #has not yet been calculated
+        self._gcd= None   #initialize _gcd to None to indicate it hasn't been calculated yet
+
         
     def _is_positive_integer(self,n):
         #checks if a given number is a positive integer
@@ -31,7 +31,7 @@ class EuclideanAlgorithm:
         
         return self._valid   #returns the value of the _valid attribute
     
-    def caculate_gcd(self):
+    def calculate_gcd(self):
         #calculates the GCD of the two integers stored in the object using the Euclidean Algorithm
         if not self._valid:
             return None   #return None if the object is not valid
@@ -56,7 +56,7 @@ class EuclideanAlgorithm:
         if not self._valid: 
            return None   #return None if the object is not valid
         if self._gcd is None:
-            self.caculate_gcd()   ##calculate the GCD if it hasn't been already
+            self.calculate_gcd()   ##calculate the GCD if it hasn't been already
             return self._gcd
         return self._gcd
        
@@ -73,12 +73,12 @@ def get_valid_integer_input(prompt):
                 is_digit_string=False
                 break
             
-            if is_digit_string:
-                number= int(user_input)   #convert the input string to an integer
-                return number   #return the non-negative integer
+        if is_digit_string:
+            number= int(user_input)   #convert the input string to an integer
+            return number   #return the non-negative integer
                 
-            else:
-                print('Invalid input: Please enter an integer.')
+        else:
+            print('Invalid input: Please enter an integer.')
                 
 if __name__ =='__main__':
     print('Welcome to the Euclidean Algorithm GCD caculator!')
