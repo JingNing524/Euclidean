@@ -26,6 +26,8 @@ class EuclideanAlgorithm:
 input_a=270
 input_b=192       
 
+# this is a code comment
+
 example=EuclideanAlgorithm(input_a, input_b)   
 gcd_result=example.get_gcd()
 print(f"GCD({input_a}, {input_b})={gcd_result}")     
